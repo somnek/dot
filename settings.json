@@ -1,0 +1,32 @@
+{
+    "editor.fontFamily": "'Agave', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontWeight": "700",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+    "editor.letterSpacing": 0.4,
+    "editor.insertSpaces": true,
+    "editor.lineHeight": 1.8,
+    "editor.detectIndentation": false,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "name": "entity.name.function",
+          "scope": [
+            "entity.name.function"
+          ],
+          "settings": {
+            "fontStyle": "underline italic",
+            "foreground": "#b9b9b9"
+          }
+        }
+      ]
+    },
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorStyle": "line-thin",
+    "editor.hideCursorInOverviewRuler": false,
+    "terminal.integrated.cursorBlinking": true,
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#00bfff"
+    }
+}
