@@ -13,7 +13,6 @@ rm ~/.poshthemes/themes.zip
 oh-my-posh font install
 
 eval "$(oh-my-posh init bash)" >> ~/.bashrc
-exec bash
 
 echo "get your themes at: https://ohmyposh.dev/docs/themes"
 echo "note that this script you are using bash"
