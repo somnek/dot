@@ -10,3 +10,4 @@ curl -sSL "$rel" -o "$HOME/.local/bin/docker-compose"
 chmod +x "$HOME/.local/bin/docker-compose"
 
 echo "if failed, probably because you don't have ./local/bin directory"
+echo 'Next do: export PATH=$PATH:$HOME/.local/bin/ && export PATH=$PATH:$HOME/.local/bin/docker-compose'
