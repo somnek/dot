@@ -3,6 +3,7 @@ sudo apt-get -y update && sudo apt-get -y upgrade
 sudo apt-get install vim && \
 sudo apt-get update && \
 sudo apt -y install jq && \
+apt install net-tools && \
 bash ./install/neovim.sh && \
 touch ~/.bash_aliases && \
 echo "alias nv='nvim'" >> ~/.bash_aliases && \
