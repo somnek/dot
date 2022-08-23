@@ -6,8 +6,5 @@ os=$(uname -s)
 arch=$(uname -m)
 latest=$(curl -sSL "https://api.github.com/repos/$user/$repo/releases/latest" | jq -r .name)
 rel="https://github.com/docker/compose/releases/download/$latest/docker-compose-${os,,}-$arch"
-curl -sSL "$rel" -o "$HOME/.local/bin/docker-compose"
-chmod +x "$HOME/.local/bin/docker-compose"
-
-echo "if failed, probably because you don't have ./local/bin directory"
-echo 'Next do: export PATH=$PATH:$HOME/.local/bin/ && export PATH=$PATH:$HOME/.local/bin/docker-compose'
+curl -sSL "$rel" -o "/usr/local/bin/docker-compose"
+chmod +x /usr/local/bin/docker-compose
