@@ -2,6 +2,7 @@
 sudo apt-get -y update && sudo apt-get -y upgrade
 sudo apt-get install vim && \
 sudo apt-get update && \
+sudo apt-get install neofetch && \
 sudo apt -y install jq && \
 apt install net-tools && \
 bash ./install/neovim.sh && \
