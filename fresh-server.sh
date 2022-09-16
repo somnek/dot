@@ -1,11 +1,22 @@
 #!/bin/bash
+
+
+# update & upgrade
 sudo apt-get -y update && sudo apt-get -y upgrade
+# vim
 sudo apt-get install vim && \
-sudo apt-get update && \
+# neofetch
 sudo apt-get install neofetch && \
+# jq
 sudo apt -y install jq && \
+# tmux
+sudo apt-get install tmux && \
+# net tools
 apt install net-tools && \
+# neovim
 bash ./install/neovim.sh && \
+
+# create and add aliases
 touch ~/.bash_aliases && \
 echo "alias nv='nvim'" >> ~/.bash_aliases && \
 echo "alias lst='ls -tl'" >> ~/.bash_aliases
