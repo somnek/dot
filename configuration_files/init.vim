@@ -1,5 +1,5 @@
 :set relativenumber
-:set autoindent
+:set autoindent 
 :set tabstop=4
 :set shiftwidth=4
 :set smarttab
@@ -14,6 +14,9 @@
 :set noshowmode
 
 call plug#begin()
+" Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' } " show tabs
+" Plug 'kyazdani42/nvim-web-devicons' " for bufferline below
+Plug 'martinsione/darkplus.nvim'
 Plug 'cpea2506/one_monokai.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -39,7 +42,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -64,25 +67,18 @@ vmap <C-v> "+y
 set encoding=UTF-8
 
 " somnek
-nnoremap("<leader>p", "\"_dP") 
-nnoremap <C-w> <C-w>w
+" nnoremap <C-w> <C-w>w
 command Q q
 command W w
 command Qw wq
 command Wq qw
 command Two set tabstop=2 shiftwidth=2
+command Nonum set nonumber norelativenumber
 
 command X /\[x\]
 " Global pasta
 command Hello :put = 'hello'
 " to repeat command do @:
-
-"        tender jellybeans happy_hacking iceberg 
-"        PaperColor nord onedark hybrid_material molokai orange_moon 
-"        angr hybrid_material afterglow deus lucius anderson sonokai
-"        spacecamp deep-space focuspoint dogrun tokyonight onenord
-"        aquarium embark mountaineer kanagawa nordfox duskfox
-"
 
 " lua and shit
 lua require'colorizer'.setup()
@@ -90,20 +86,36 @@ lua require("nvim-lsp-installer").setup {}
 lua require'lspconfig'.rust_analyzer.setup{}
 lua require'lspconfig'.gopls.setup{}
 lua require'lspconfig'.golangci_lint_ls.setup{}
+lua require'lspconfig'.jedi_language_server.setup{}
+"lua require'lspconfig'.pylsp.setup{}
 
 " for some reason this only works in neovide
 nnoremap <leader>la <cmd>lua vim.lsp.buf.hover()<CR>
 inoremap <c-r> <c-v>
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
-:colorscheme duskfox
+
+"        tender jellybeans happy_hacking iceberg 
+"        PaperColor nord onedark hybrid_material molokai orange_moon 
+"        angr hybrid_material afterglow deus lucius anderson sonokai
+"        spacecamp deep-space focuspoint dogrun tokyonight onenord
+"        aquarium embark mountaineer kanagawa nordfox duskfox
+"        one_monokai snow gruvbox
+
+
+:colorscheme jellybeans
+let g:gruvbox_contrast_dark = 'hard'
+
+if (has ('termguicolors'))
+	set termguicolors
+endif
 
 
 "" <--------- air-line ----------
 let g:airline_powerline_fonts = 1
 "        iceberg onehalfdark sonokai tenderplus
-"        base16_aquarium_dark / light
-let g:airline_theme='tenderplus'
+"        base16_aquarium_dark / light nord embark
+let g:airline_theme='base16_aquarium_dark'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -120,23 +132,23 @@ inoremap <silent><expr> <S-Tab>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<S-Tab>" :
       \ coc#refresh()
-""
+
 "" <----------NEOVIDE-----------
 if exists("g:neovide")
 	set termguicolors
-	set guifont=JetBrains\ Mono
-	let g:neovide_fullscreen=v:false
+	" set guifont=JetBrains\ Mono
+	" set guifont=Fira\ Code
+	set guifont=JetBrains\ Mono:h10
+	let g:neovide_fullscreen=v:true
 
 	" --------------------------------------------
 	" | torpedo sonicboom pixiedust railgun
 	" --------------------------------------------
 	" pixiedust mode
 	let g:neovide_cursor_vfx_mode='pixiedust'
-	let g:neovide_transparency=0.90
-	let g:neovide_fullscreen=v:true
-	let g:neovide_cursor_vfx_particle_density=120
-	let g:neovide_cursor_vfx_particle_speed=70
-	let g:neovide_cursor_vfx_particle_curl=20
+	let g:neovide_cursor_vfx_particle_density=100
+	let g:neovide_cursor_vfx_particle_speed=80
+	let g:neovide_cursor_vfx_particle_curl=0.1 " how thick initial dust
 	"
 	" railgun mode:
 	" let g:neovide_cursor_vfx_mode='railgun'
@@ -167,13 +179,19 @@ if exists("g:neovide")
 	command NDFSF :let g:neovide_fullscreen=v:false
 	command NDFST :let g:neovide_fullscreen=v:true
 
-	let g:airline_theme='onehalfdark'
+	let g:airline_theme='sonokai'
 	let g:aquarium_style="dark"
 	" tokyo style: day/night/storm
-	let g:tokyonight_style = "night"
-	colorscheme one_monokai
+	let g:tokyonight_style = "storm"
+	colorscheme tokyonight
 endif
 "" -----------NEOVIDE----------->
+
+" bufferline
+" lua << EOF
+" require("bufferline").setup{}
+" EOF
+
 
 "" airline symbols
 let g:airline_left_sep = ''
@@ -186,3 +204,5 @@ let g:airline_symbols.linenr = '|'
 :hi link markdownError Normal
 " :set clipboard=unnamedplus
 
+
+nnoremap <leader>la <cmd>lua vim.lsp.buf.hover()<CR>
