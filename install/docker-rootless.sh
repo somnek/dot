@@ -6,3 +6,7 @@ cd docker-install && \
 sudo groupadd docker && \
 sudo usermod -aG docker "$USER" && \
 echo "Done!Now reboot..."
+
+
+# can use su -s ${USER} to relog, instead of reboot,
+# but it needs special password
