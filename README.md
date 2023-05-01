@@ -4,3 +4,7 @@
 </p>
 <br/>
 My dot files
+
+
+### Todo:
+[ ] scipts/update docker
