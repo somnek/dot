@@ -3,6 +3,8 @@
 
 # update & upgrade
 sudo apt-get -y update && sudo apt-get -y upgrade
+# tree
+sudo apt-get install tree && \
 # vim
 sudo apt-get install vim && \
 # neofetch
