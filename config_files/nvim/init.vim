@@ -16,8 +16,6 @@ set title
 set noshowmode
 
 
-" Sourcing configurations files from ./configs
-source ~/.config/nvim/configs/coc.vim
 
 call plug#begin()
 Plug 'github/copilot.vim'
@@ -33,11 +31,16 @@ Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'shaunsingh/nord.nvim'
+Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 Plug 'folke/tokyonight.nvim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " dropdowns
 call plug#end()
+
+" Sourcing configurations files from ./configs
+source ~/.config/nvim/configs/neovide.vim
+source ~/.config/nvim/configs/coc.vim
 
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope find_files<cr>
@@ -52,8 +55,13 @@ lua require("mason").setup()
 lua require'lspconfig'.rust_analyzer.setup{}
 lua require'lspconfig'.gopls.setup{}
 
-let g:airline_theme='tender'
+let g:airline_theme='nord'
 colorscheme nord
+
+:hi link markdownError Normal " hide markdownError
+
+" air line
+let g:airline_powerline_fonts = 1 " arrow
 
 " Notes
 " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
