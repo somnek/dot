@@ -71,7 +71,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 lua require("mason").setup()
 lua require'lspconfig'.rust_analyzer.setup{}
 lua require'lspconfig'.gopls.setup{}
-lua require'lspconfig'.lua_ls.setup{}
+
 source ~/.config/nvim/configs/zero.lua
 
 :hi link markdownError Normal " hide markdownError
