@@ -17,13 +17,14 @@ set noshowmode
 
 call plug#begin()
 " Others
-" Plug 'neoclide/coc.nvim', {'branch': 'release'} " dropdowns
 Plug 'github/copilot.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-context' " sticky func def
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 " Lsp Support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
@@ -51,6 +52,7 @@ colorscheme nord
 
 source ~/.config/nvim/configs/neovide.vim
 
+" key binds
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope find_files<cr>
 nnoremap <C-g> <cmd>Telescope live_grep<cr>
@@ -58,14 +60,19 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
+nnoremap <leader>p "+p
+vnoremap <leader>P "+P
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
 " lua & shit
 lua require("mason").setup()
 lua require'lspconfig'.rust_analyzer.setup{}
 lua require'lspconfig'.gopls.setup{}
-source ~/.config/nvim/configs/zero.vim
+lua require'lspconfig'.lua_ls.setup{}
+source ~/.config/nvim/configs/zero.lua
 
 :hi link markdownError Normal " hide markdownError
 
