@@ -3,6 +3,7 @@ let mapleader = " "
 set termguicolors
 set relativenumber
 set autoindent 
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set smarttab
@@ -29,12 +30,15 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim' " for formatting
+Plug 'olexsmir/gopher.nvim' " some go Action with :Go <cmd>
 " Autocomletion
 Plug 'hrsh7th/nvim-cmp'     " Required
 Plug 'hrsh7th/cmp-nvim-lsp' " Required
 Plug 'L3MON4D3/LuaSnip'     " Required
 Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 " Themes
+Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
 Plug 'shaunsingh/nord.nvim'
 Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 Plug 'folke/tokyonight.nvim'
@@ -47,7 +51,10 @@ call plug#end()
 " air line
 let g:airline_powerline_fonts = 1 " arrow
 " colorscheme
-let g:airline_theme='nord'
+let g:aqua_bold = 1
+let g:aquarium_style="dark"
+let g:airline_theme="onehalfdark"
+
 colorscheme nord
 
 source ~/.config/nvim/configs/neovide.vim
@@ -66,16 +73,19 @@ nnoremap <leader>p "+p
 vnoremap <leader>P "+P
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>err <cmd>GoIfErr<cr>
 
 " lua & shit
 lua require("mason").setup()
 lua require'lspconfig'.rust_analyzer.setup{}
+lua require'lspconfig'.ruff_lsp.setup{}
 lua require'lspconfig'.gopls.setup{}
 
+
 source ~/.config/nvim/configs/zero.lua
+source ~/.config/nvim/configs/lsp.lua
 
 :hi link markdownError Normal " hide markdownError
-
 
 " Notes
 " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
