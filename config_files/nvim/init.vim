@@ -26,12 +26,13 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'norcalli/nvim-colorizer.lua' " Highlight HEX colors
 " Lsp Support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim' " for formatting
-Plug 'olexsmir/gopher.nvim' " some go Action with :Go <cmd>
+Plug 'olexsmir/gopher.nvim' " :Go<cmd>
 " Autocomletion
 Plug 'hrsh7th/nvim-cmp'     " Required
 Plug 'hrsh7th/cmp-nvim-lsp' " Required
@@ -48,9 +49,8 @@ Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" air line
+" Color
 let g:airline_powerline_fonts = 1 " arrow
-" colorscheme
 let g:aqua_bold = 1
 let g:aquarium_style="dark"
 let g:airline_theme="onehalfdark"
@@ -59,7 +59,8 @@ colorscheme nord
 
 source ~/.config/nvim/configs/neovide.vim
 
-" key binds
+" Keymaps
+" - watch out with leaders, might slow down due to its waiting for the next key
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope find_files<cr>
 nnoremap <C-g> <cmd>Telescope live_grep<cr>
@@ -73,13 +74,19 @@ nnoremap <leader>p "+p
 vnoremap <leader>P "+P
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <leader>err <cmd>GoIfErr<cr>
+nnoremap <leader>E <cmd>GoIfErr<cr>
 
-" lua & shit
+" Commands
+command Two set tabstop=2 shiftwidth=2
+command Four set tabstop=4 shiftwidth=4
+
+" Setup
 lua require("mason").setup()
 lua require'lspconfig'.rust_analyzer.setup{}
+" lua require'lspconfig'.pyright.setup{}
 lua require'lspconfig'.ruff_lsp.setup{}
 lua require'lspconfig'.gopls.setup{}
+lua require'colorizer'.setup()
 
 
 source ~/.config/nvim/configs/zero.lua

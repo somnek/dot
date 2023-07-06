@@ -1,14 +1,31 @@
--- Go: staticcheck, gopls
-lspconfig = require "lspconfig"
-util = require "lspconfig/util"
+local lspconfig = require "lspconfig"
+local util = require "lspconfig/util"
 
+---- Pyright
+--lspconfig.pyright.setup {
+--  on_attach=on_attach,
+--  capabilities = capabilities,
+--  cmd = {"pyright-langserver", "--stdio"},
+--  filetypes = {"python"},
+--  root_dir = util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt"),
+--  settings = {
+--    python = {
+--      analysis = {
+--        autoSearchPaths = true,
+--        diagnosticMode = "workspace", -- workspace/openFilesOnly
+--        useLibraryCodeForTypes = true,
+--      },
+--    },
+--  },
+--}
+
+-- Go: staticcheck, gopls
 lspconfig.gopls.setup {
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
-      gofumpt = true,
       analyses = {
         unusedparams = true,
       },
@@ -25,11 +42,13 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end
 })
 
--- Dianostic: (errors span multiple lines)
+-- Diagnostic: (errors span multiple lines)
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 
 -- LSP: null-ls (formatter)
 local null_ls = require("null-ls")
