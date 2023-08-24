@@ -7,4 +7,5 @@ My dot files
 
 
 ### Todo:
-[ ] scipts/update docker (though rerunning root-docker works, error message can be misleading)
+- [ ] installation scripts for macOs
+- [ ] scipts/update docker (though rerunning root-docker works, error message can be misleading)
