@@ -4,8 +4,3 @@
 </p>
 <br/>
 My dot files
-
-
-### Todo:
-- [ ] installation scripts for macOs
-- [ ] scipts/update docker (though rerunning root-docker works, error message can be misleading)
