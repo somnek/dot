@@ -39,6 +39,7 @@ Plug 'hrsh7th/cmp-nvim-lsp' " Required
 Plug 'L3MON4D3/LuaSnip'     " Required
 Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 " Themes
+Plug 'rebelot/kanagawa.nvim',
 Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
 Plug 'shaunsingh/nord.nvim'
 Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
@@ -46,6 +47,7 @@ Plug 'folke/tokyonight.nvim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
@@ -55,7 +57,7 @@ let g:aqua_bold = 1
 let g:aquarium_style="dark"
 let g:airline_theme="onehalfdark"
 
-colorscheme nord
+colorscheme default
 
 source ~/.config/nvim/configs/neovide.vim
 
