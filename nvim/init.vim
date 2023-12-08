@@ -19,8 +19,7 @@ set noshowmode
 call plug#begin()
 " Others
 Plug 'github/copilot.vim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-context' " sticky func def
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
@@ -39,6 +38,8 @@ Plug 'hrsh7th/cmp-nvim-lsp' " Required
 Plug 'L3MON4D3/LuaSnip'     " Required
 Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 " Themes
+Plug 'tjdevries/colorbuddy.nvim', { 'branch': 'dev' }
+Plug 'jesseleite/nvim-noirbuddy'
 Plug 'rebelot/kanagawa.nvim',
 Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
 Plug 'shaunsingh/nord.nvim'
@@ -57,7 +58,7 @@ let g:aqua_bold = 1
 let g:aquarium_style="dark"
 let g:airline_theme="onehalfdark"
 
-colorscheme default
+colorscheme noirbuddy
 
 source ~/.config/nvim/configs/neovide.vim
 
@@ -88,11 +89,12 @@ lua require'lspconfig'.rust_analyzer.setup{}
 " lua require'lspconfig'.pyright.setup{}
 lua require'lspconfig'.ruff_lsp.setup{}
 lua require'lspconfig'.gopls.setup{}
-lua require'colorizer'.setup()
+" lua require'colorizer'.setup()
 
 
 source ~/.config/nvim/configs/zero.lua
 source ~/.config/nvim/configs/lsp.lua
+source ~/.config/nvim/configs/color.lua
 
 :hi link markdownError Normal " hide markdownError
 
