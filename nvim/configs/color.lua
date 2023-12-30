@@ -1,19 +1,19 @@
 -- presets: minimal, miami-nights, kiwi, slate, crt-green, crt-amber
 require("noirbuddy").setup {
-    preset = 'slate',
-    colors = {
-      primary = '#6EE2FF',
-      secondary = '#267FB5',
-      background = '#18181A',
-      diagnostic_error = '#EC0034',
-      diagnostic_warning = '#ff7700',
-      diagnostic_info = '#d5d5d5',
-      diagnostic_hint = '#f5f5f5',
-      diff_add = '#f5f5f5',
-      diff_change = '#737373',
-      diff_delete = '#EC0034',
-    },
-  }
+    preset = 'kiwi',
+    -- colors = {
+    --     primary = '#6EE2FF',
+    --     secondary = '#267FB5',
+    --     background = '#18181A',
+    --     diagnostic_error = '#EC0034',
+    --     diagnostic_warning = '#ff7700',
+    --     diagnostic_info = '#d5d5d5',
+    --     diagnostic_hint = '#f5f5f5',
+    --     diff_add = '#f5f5f5',
+    --     diff_change = '#737373',
+    --     diff_delete = '#EC0034',
+    -- },
+}
 
 
 -- you can even customize telescope etc, tho the preset also does this

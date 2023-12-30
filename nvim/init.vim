@@ -86,11 +86,8 @@ command Four set tabstop=4 shiftwidth=4
 " Setup
 lua require("mason").setup()
 lua require'lspconfig'.rust_analyzer.setup{}
-" lua require'lspconfig'.pyright.setup{}
 lua require'lspconfig'.ruff_lsp.setup{}
 lua require'lspconfig'.gopls.setup{}
-" lua require'colorizer'.setup()
-
 
 source ~/.config/nvim/configs/zero.lua
 source ~/.config/nvim/configs/lsp.lua

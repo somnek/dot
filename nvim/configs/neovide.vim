@@ -1,5 +1,5 @@
 if exists("g:neovide")
-	set guifont=MonoLisa:h11
+	set guifont=MonoLisa:h13
 	" set guifont=Recursive:h11
     colorscheme nord
 	set linespace=2
@@ -11,6 +11,7 @@ if exists("g:neovide")
 	let g:neovide_refresh_rate = 60
 	let g:neovide_hide_mouse_when_typing = v:true
 	let g:neovide_input_use_logo = v:false
+    let g:neovide_cursor_animate_command_line = v:true
 
 	" cursor settings
 	let g:neovide_cursor_animation_length = 0.13
