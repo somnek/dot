@@ -63,7 +63,7 @@ colorscheme noirbuddy
 source ~/.config/nvim/configs/neovide.vim
 
 " Keymaps
-" - watch out with leaders, might slow down due to its waiting for the next key
+" - watch out with leaders, might slow down due to waiting for the next key
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-f> <cmd>Telescope find_files<cr>
 nnoremap <C-g> <cmd>Telescope live_grep<cr>

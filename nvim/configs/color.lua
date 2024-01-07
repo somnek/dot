@@ -1,18 +1,30 @@
 -- presets: minimal, miami-nights, kiwi, slate, crt-green, crt-amber
 require("noirbuddy").setup {
-    preset = 'kiwi',
-    -- colors = {
-    --     primary = '#6EE2FF',
-    --     secondary = '#267FB5',
-    --     background = '#18181A',
-    --     diagnostic_error = '#EC0034',
-    --     diagnostic_warning = '#ff7700',
-    --     diagnostic_info = '#d5d5d5',
-    --     diagnostic_hint = '#f5f5f5',
-    --     diff_add = '#f5f5f5',
-    --     diff_change = '#737373',
-    --     diff_delete = '#EC0034',
-    -- },
+    -- preset = 'minimal',
+    colors = {
+        primary = '#A9BCD0',
+        secondary = '#EF476F',
+        background = '#2E3440',
+        diagnostic_error = '#B48EAD',
+        diagnostic_warning = '#D08770',
+        diagnostic_info = '#d5d5d5',
+        diagnostic_hint = '#f5f5f5',
+        diff_add = '#f5f5f5',
+        diff_change = '#737373',
+        diff_delete = '#BF616A',
+
+        -- grayscale
+        noir_0 = '#ffffff', -- `noir_0` is light for dark themes, and dark for light themes
+        noir_1 = '#f5f5f5',
+        noir_2 = '#d5d5d5',
+        noir_3 = '#b4b4b4',
+        noir_4 = '#a7a7a7',
+        noir_5 = '#949494',
+        noir_6 = '#737373',
+        noir_7 = '#4C566A', -- comments (look at section below '@comment')
+        noir_8 = '#8F754F', -- highligted background
+        noir_9 = '#212121', -- `noir_9` is dark for dark themes, and light for light themes
+    },
 }
 
 
