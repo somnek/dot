@@ -15,10 +15,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- load from files (these file structures is lazynvim features)
-require("vim-options") -- look for ./vim-options.lua
+require("vim-options") -- look for ./lua/vim-options.lua
+
 -- look for lua/plugins/*.lua
 require("lazy").setup("plugins", {
 	change_detection = {
 		notify = false,
 	},
 })
+
+require("neovide") -- look for ./lua/neovide

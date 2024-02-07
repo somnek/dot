@@ -15,9 +15,9 @@ return {
 
 		-- manually format
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-		-- add borders
-		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-		-- vim.lsp.handlers["textDocument/signatureHelp"] =
-		-- 	vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+		vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
+		vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, {}) -- show diagnostic in bottom new pane
+		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
+		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
 	end,
 }
