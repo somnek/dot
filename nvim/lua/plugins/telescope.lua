@@ -11,6 +11,9 @@ return {
       vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
       vim.keymap.set("n", "<leader>th", builtin.colorscheme, {})
+      vim.keymap.set("n", "<leader>sc", builtin.commands, {}) -- list of commands
+      vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, {})
+      vim.keymap.set("n", "gr", builtin.lsp_references, {})
 
       -- enable preview theme
       require("telescope").setup({
@@ -18,6 +21,11 @@ return {
           colorscheme = {
             enable_preview = true,
           },
+        },
+        defaults = {
+          prompt_prefix = "🔭 ",
+          selection_caret = " ",
+          entry_prefix = "  ",
         },
       })
     end,

@@ -40,6 +40,15 @@ return {
 					{ name = "buffer" },
 				}),
 			})
+			-- diagnostic border
+			vim.diagnostic.config({
+				virtual_text = false,
+				float = {
+					header = false,
+					border = "rounded",
+					focusable = true,
+				},
+			})
 		end,
 	},
 }
