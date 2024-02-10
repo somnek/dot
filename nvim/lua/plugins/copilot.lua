@@ -1,8 +1,15 @@
 return {
-	"github/copilot.vim",
-	config = function()
-		-- disable copilot
-		vim.keymap.set("n", "<leader>coo", "<cmd>Copilot enable<cr>")
-		vim.keymap.set("n", "<leader>cox", "<cmd>Copilot disable<cr>")
-	end,
+  "github/copilot.vim",
+  config = function()
+    -- disable copilot
+    vim.keymap.set("n", "<leader>coo", function()
+      vim.cmd("Copilot enable")
+      vim.notify("   Copilot enabled")
+    end)
+    -- enable copilot
+    vim.keymap.set("n", "<leader>cox", function()
+      vim.cmd("Copilot disable")
+      vim.notify(" 󰅖   Copilot disabled")
+    end)
+  end,
 }
