@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 # source: https://docs.docker.com/engine/install/ubuntu/
 # 11/02/2024
 
