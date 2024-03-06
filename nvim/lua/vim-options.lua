@@ -36,7 +36,7 @@ vim.cmd("command Four set tabstop=4 shiftwidth=4")
 vim.keymap.set("n", "<leader>rw", "<C-w>r", { desc = "Rotate windows" })
 
 -- L & H to jump to start and end of line
-vim.keymap.set({ "v", "n" }, "L", "$<left>")
+vim.keymap.set({ "v", "n" }, "L", "$")
 vim.keymap.set({ "v", "n" }, "H", "^")
 
 -- more jumping + centering

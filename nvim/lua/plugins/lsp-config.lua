@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ruff_lsp", "gopls", "rust_analyzer", "tsserver" },
+        ensure_installed = { "lua_ls", "gopls", "rust_analyzer", "tsserver", "pyright" },
       })
     end,
   },
@@ -22,13 +22,17 @@ return {
 
       -- Specify how the border looks like
       local border = {
-        { "┌", "FloatBorder" },
+        -- { "╭", "FloatBorder" },
+        { "", "FloatBorder" },
         { "─", "FloatBorder" },
-        { "┐", "FloatBorder" },
+        -- { "╮", "FloatBorder" },
+        { "", "FloatBorder" },
         { "│", "FloatBorder" },
-        { "┘", "FloatBorder" },
+        -- { "╯", "FloatBorder" },
+        { "", "FloatBorder" },
         { "─", "FloatBorder" },
-        { "└", "FloatBorder" },
+        -- { "╰", "FloatBorder" },
+        { "", "FloatBorder" },
         { "│", "FloatBorder" },
       }
 
@@ -43,15 +47,19 @@ return {
         capabilities = capabilities,
         handlers = handlers,
       })
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities,
+        handlers = handlers,
+      })
       lspconfig.tsserver.setup({
         capabilities = capabilities,
         handlers = handlers,
       })
-      lspconfig.ruff_lsp.setup({
+      lspconfig.gopls.setup({
         capabilities = capabilities,
         handlers = handlers,
       })
-      lspconfig.gopls.setup({
+      lspconfig.pyright.setup({
         capabilities = capabilities,
         handlers = handlers,
       })

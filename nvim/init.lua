@@ -28,7 +28,7 @@ require("lazy").setup("plugins", {
 require("neovide")
 require("custom")
 
-vim.cmd("colorscheme nordic")
+vim.cmd("colorscheme tokyonight")
 
 -- if w command is slow
 -- :nmap w
