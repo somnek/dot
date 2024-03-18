@@ -1,0 +1,24 @@
+{
+  "features": {
+    "copilot": true
+  },
+  "show_copilot_suggestions": false,
+  "theme": "One Dark",
+  "buffer_font_size": 15,
+  "vim_mode": true,
+  "language_overrides": {
+    "Python": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "ruff check --exit-zero --fix --unsafe-fixes --stdin-filename {buffer_path} | ruff format --stdin-filename {buffer_path}"
+          ]
+        }
+      }
+    }
+  }
+}
+
