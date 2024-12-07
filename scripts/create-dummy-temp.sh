@@ -44,7 +44,9 @@ elif [ "$1" == "typescript" ] || [ "$1" == "ts" ]; then
     }' > package.json
     echo "✅ created package.json for TypeScript" 
 
-    echo "Run: pnpm install or npm install to install the dependencies"
+    # echo "Run: pnpm install or npm install to install the dependencies"
+    pnpm install to install the dependencies
+    echo "✅ installed dependencies with [pnpm] as package manager"
     echo "Run: npx ts-node index.ts to execute the script"
 
 else
